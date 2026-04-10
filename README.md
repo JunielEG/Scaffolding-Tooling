@@ -27,30 +27,45 @@ Each tool has its own repository with its specific requirements and documentatio
 - Each tool may have its own additional requirements (compiler, runtime, etc.) — see its repository.
 
 ---
-
 ## Installation
 
-There are three ways to install, depending on what you need.
+There are multiple ways to install, depending on your environment.
 
 ---
 
 ### Option A — Install everything (recommended)
 
-Download and run `Install-All.bat`. You don't need to clone anything first — the script handles it.
+Use the provided installer script for your operating system. You don't need to clone anything first — the script handles it.
 
-**1. Download `Install-All.bat`** from this repository.
+#### **Windows**
 
-**2. Run it as Administrator** (double-click or from a terminal):
+1. Download `Install-All.bat` from this repository
+2. Run it as Administrator:
+
 ```bat
 Install-All.bat
 ```
 
-The script will:
-1. Clone this repository into the current folder (if not already present)
-2. Pull all tool submodules
-3. Run each tool's `install.bat` automatically
+#### **Linux / macOS**
 
-**3. Open a new terminal** and verify any tool is available, for example:
+1. Download `Install-All.sh`
+2. Give execution permission and run:
+
+```bash
+chmod +x Install-All.sh
+./Install-All.sh
+```
+
+#### What the script does
+
+* Clones this repository (if not already present)
+* Pulls all tool submodules
+* Runs each tool's install script automatically
+
+#### Final step
+
+Open a new terminal and verify a tool is available:
+
 ```bash
 cppx help
 ```
@@ -64,11 +79,29 @@ If you prefer to inspect the repo before running anything:
 ```bash
 git clone --recurse-submodules https://github.com/JunielEG/Scaffolding-Generator.git
 cd Scaffolding-Generator
+```
+
+#### Then run the installer:
+
+* **Windows**
+
+```bat
 Install-All.bat
 ```
 
+* **Linux / macOS**
+
+```bash
+chmod +x Install-All.sh
+./Install-All.sh
+```
+
 > [!NOTE]
-> Using `--recurse-submodules` downloads all tools in one step. Without it, `tools/` will be empty until you run `git submodule update --init --recursive`.
+> Using `--recurse-submodules` downloads all tools in one step. Without it, `tools/` will be empty until you run:
+
+```bash
+git submodule update --init --recursive
+```
 
 ---
 
@@ -84,7 +117,7 @@ If you only need one specific tool, go directly to its repository and follow its
 
 ## How it works
 
-This repository uses **Git submodules**. Each tool lives in its own repository under `tools/` and has its own `install.bat`. When you run `Install-All.bat`, it detects every folder inside `tools/` that contains an `install.bat` and runs it automatically — no manual steps needed when new tools are added.
+This repository uses **Git submodules**. Each tool lives in its own repository under `tools/` and has its own installer script. When you run `Install-All.bat`(*for windows*), it detects every folder inside `tools/` that contains an `install.bat` and runs it automatically — no manual steps needed when new tools are added.
 
 ---
 
@@ -93,7 +126,7 @@ This repository uses **Git submodules**. Each tool lives in its own repository u
 New tools are added as submodules. Once a tool is merged into this repo, `Install-All.bat` will pick it up automatically on the next run — no changes to the script needed.
 
 > [!IMPORTANT]
-> Every tool **must** follow this folder structure exactly, or `Install-All.bat` will not be able to install it.
+> Every tool **must** follow this folder structure, with the install scripts in the root.
 
 ```
 <lang>-cli/
