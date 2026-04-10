@@ -1,0 +1,3 @@
+[submodule "tools/cpp-cli"]
+	path = tools/cpp-cli
+	url = https://github.com/JunielEG/cpp-cli.git
