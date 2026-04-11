@@ -5,7 +5,7 @@ set "REPO_URL=https://github.com/JunielEG/Scaffolding-Generator.git"
 
 echo.
 echo   Scaffolding Generator  setup
-echo   ────────────────────────────────────────
+echo   ----------------------------------------
 echo.
 
 cd /d "%~dp0"
@@ -35,7 +35,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo   ────────────────────────────────────────
+echo   ----------------------------------------
 echo   installing tools...
 echo.
 
@@ -72,7 +72,7 @@ if %FOUND%==0 (
 )
 
 echo.
-echo   ────────────────────────────────────────
+echo   ----------------------------------------
 echo   summary
 echo.
 
