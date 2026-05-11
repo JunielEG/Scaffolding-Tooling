@@ -9,14 +9,14 @@ A collection of command-line tools that generate project boilerplate for differe
 
 ## Available tools
 
-| Tool | Language / Stack | Status |
-|---|---|---|
-| [cpp-cli](https://github.com/JunielEG/cpp-cli) | C++ + CMake | Available |
-| [scaff-cli](https://github.com/JunielEG/scaff-cli) | Doesn't apply | Partially Implemented |
-| [py-cli](https://github.com/JunielEG/py-cli) | Python | Coming soon |
-| java-cli | Java | Coming soon |
-| js-cli | JavaScript / Node.js | Coming soon |
-| web-cli | HTML / CSS / JS | Coming soon |
+| Tool                                               | Language / Stack     | Status                |
+| -------------------------------------------------- | -------------------- | --------------------- |
+| [cpp-cli](https://github.com/JunielEG/cpp-cli)     | C++ + CMake          | Available             |
+| [scaff-cli](https://github.com/JunielEG/scaff-cli) | Doesn't apply        | Partially Implemented |
+| [py-cli](https://github.com/JunielEG/py-cli)       | Python               | Coming soon           |
+| java-cli                                           | Java                 | Coming soon           |
+| js-cli                                             | JavaScript / Node.js | Coming soon           |
+| web-cli                                            | HTML / CSS / JS      | Coming soon           |
 
 Each tool has its own repository with its specific requirements and documentation.
 
@@ -28,6 +28,7 @@ Each tool has its own repository with its specific requirements and documentatio
 - Each tool may have its own additional requirements (compiler, runtime, etc.) — see its repository.
 
 ---
+
 ## Installation
 
 There are multiple ways to install, depending on your environment.
@@ -59,9 +60,9 @@ chmod +x Install-All.sh
 
 #### What the script does
 
-* Clones this repository (if not already present)
-* Pulls all tool submodules
-* Runs each tool's install script automatically
+- Clones this repository (if not already present)
+- Pulls all tool submodules
+- Runs each tool's install script automatically
 
 #### Final step
 
@@ -84,13 +85,13 @@ cd Scaffolding-Generator
 
 #### Then run the installer:
 
-* **Windows**
+- **Windows**
 
 ```bat
 Install-All.bat
 ```
 
-* **Linux / macOS**
+- **Linux / macOS**
 
 ```bash
 chmod +x Install-All.sh
@@ -110,15 +111,15 @@ git submodule update --init --recursive
 
 If you only need one specific tool, go directly to its repository and follow its own installation instructions.
 
-| Tool | Repository |
-|---|---|
+| Tool    | Repository                                                         |
+| ------- | ------------------------------------------------------------------ |
 | cpp-cli | [github.com/JunielEG/cpp-cli](https://github.com/JunielEG/cpp-cli) |
 
 ---
 
 ## How it works
 
-This repository uses **Git submodules**. Each tool lives in its own repository under `tools/` and has its own installer script. When you run `Install-All.bat`(*for windows*), it detects every folder inside `tools/` that contains an `install.bat` and runs it automatically — no manual steps needed when new tools are added.
+This repository uses **Git submodules**. Each tool lives in its own repository under `tools/` and has its own installer script. When you run `Install-All.bat`(_for windows_), it detects every folder inside `tools/` that contains an `install.bat` and runs it automatically — no manual steps needed when new tools are added.
 
 ---
 
@@ -142,6 +143,7 @@ New tools are added as submodules. Once a tool is merged into this repo, `Instal
 ├── install.sh (optional)
 └── README.md
 ```
+
 - `<lang>` — is an abrevation of the languaje it was made for.
 - `templates/` — all file templates used to generate boilerplate (e.g. `class.h.tpl`, `main.cpp.tpl`).
 - `windows/` — the `.bat` and `.ps1` scripts that implement each command on Windows.
