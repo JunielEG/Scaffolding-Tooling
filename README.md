@@ -12,7 +12,7 @@ A collection of command-line tools that generate project boilerplate for differe
 | Tool                                               | Language / Stack     | Status                |
 | -------------------------------------------------- | -------------------- | --------------------- |
 | [cpp-cli](https://github.com/JunielEG/cpp-cli)     | C++ + CMake          | Available             |
-| [scaff-cli](https://github.com/JunielEG/scaff-cli) | Doesn't apply        | Partially Implemented |
+| [scaff-cli](https://github.com/JunielEG/scaff-cli) | Doesn't apply        | Available             |
 | [py-cli](https://github.com/JunielEG/py-cli)       | Python               | Coming soon           |
 | java-cli                                           | Java                 | Coming soon           |
 | js-cli                                             | JavaScript / Node.js | Coming soon           |
@@ -111,9 +111,10 @@ git submodule update --init --recursive
 
 If you only need one specific tool, go directly to its repository and follow its own installation instructions.
 
-| Tool    | Repository                                                         |
-| ------- | ------------------------------------------------------------------ |
-| cpp-cli | [github.com/JunielEG/cpp-cli](https://github.com/JunielEG/cpp-cli) |
+| Tool      | Repository                                                             |
+| --------- | ---------------------------------------------------------------------- |
+| cpp-cli   | [github.com/JunielEG/cpp-cli](https://github.com/JunielEG/cpp-cli)     |
+| scaff-cli | [github.com/JunielEG/scaff-cli](https://github.com/JunielEG/scaff-cli) |
 
 ---
 
@@ -145,8 +146,16 @@ New tools are added as submodules. Once a tool is merged into this repo, `Instal
 ```
 
 - `<lang>` — is an abrevation of the languaje it was made for.
-- `templates/` — all file templates used to generate boilerplate (e.g. `class.h.tpl`, `main.cpp.tpl`).
+- `templates/` — all file templates used to generate boilerplate or any file the CLI needs (e.g. `class.h.tpl`, `main.cpp.tpl`).
 - `windows/` — the `.bat` and `.ps1` scripts that implement each command on Windows.
 - `unix/` — the `.sh` scripts that implement each command on Linux/macOS. Unix support is optional but must live here if provided.
-- `install.bat` and `install.sh` — scripts that copy files and register the tool in the system PATH. Both are **not** required if Unix support is not yet implemented.
+- `install.bat` and `install.sh` — scripts that copy files inside the `\ScaffoldingTools\<tool>\` and register the tool in the system PATH. Unix support is **not** required.
 - `README.md` — documentation for the tool, including its own requirements and usage.
+
+
+## Installed files location
+
+| Platform      | Path                              |
+| ------------- | --------------------------------- |
+| Windows       | `%USERPROFILE%\ScaffoldingTools\<tool>\` |
+| Linux / macOS | `~/ScaffoldingTools/<tool>/`             |
